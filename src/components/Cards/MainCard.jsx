@@ -3,23 +3,41 @@ import Badge from '../Badge/Badge';
 
 
 
-const MainCard = ({ title, content, tags, image, published, tagColors }) => {
+const MainCard = ({ title, content, tags, image, tagColors, isShow, isCarousel }) => {
 
     return (
-        published &&
-        <div className="card">
-            <figure>
-                <img src={image} alt={title} />
-            </figure>
-            <div className="card-body">
-                <h2>{title}</h2>
-                <p>{content}</p>
-                <Button />
-                <div className='badge-container'>
-                    {tags.map((tag, i) => <Badge tagColors={tagColors} key={i} tag={tag} style={{ backgroundColor: tagColors[tag] }} >{tag}</Badge>)}
+        isCarousel ?
+
+            isShow &&
+            <div className="card-carousel">
+                <figure>
+                    <img src={image} alt={title} />
+                </figure>
+                <div className="card-body">
+                    <h2>{title}</h2>
+                    <p>{content}</p>
+                    <Button />
+                    <div className='badge-container'>
+                        {tags.map((tag, i) => <Badge tagColors={tagColors} key={i} tag={tag} style={{ backgroundColor: tagColors[tag] }} >{tag}</Badge>)}
+                    </div>
                 </div>
-            </div>
-        </div >
+            </div >
+
+            :
+
+            <div className="card">
+                <figure>
+                    <img src={image} alt={title} />
+                </figure>
+                <div className="card-body">
+                    <h2>{title}</h2>
+                    <p>{content}</p>
+                    <Button />
+                    <div className='badge-container'>
+                        {tags.map((tag, i) => <Badge tagColors={tagColors} key={i} tag={tag} style={{ backgroundColor: tagColors[tag] }} >{tag}</Badge>)}
+                    </div>
+                </div>
+            </div >
     );
 }
 
