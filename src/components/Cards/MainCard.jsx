@@ -32,7 +32,7 @@ const MainCard = ({ title, content, tags, image, tagColors, isShow, isCarousel }
                 <div className="card-body">
                     <h2>{title}</h2>
                     <p>{content}</p>
-                    <Button />
+                    <Button className={'btn'}>Leggi di più</Button>
                     <div className='badge-container'>
                         {tags.map((tag, i) => <Badge tagColors={tagColors} key={i} tag={tag} style={{ backgroundColor: tagColors[tag] }} >{tag}</Badge>)}
                     </div>
