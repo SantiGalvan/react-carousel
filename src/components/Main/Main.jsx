@@ -7,6 +7,7 @@ import { posts } from '../../data/posts.js';
 import FigureCard from '../Cards/FigureCard.jsx';
 import SectionCards from './SectionCards.jsx';
 import SectionTags from './SectionTags.jsx';
+import Button from '../Button/Button.jsx';
 
 const tagColors = {
     "Version Control": "#FFC300",
@@ -68,7 +69,12 @@ const Main = () => {
             <section id='carousel' >
 
                 <div className={mainStyle.carousel}>
-                    <button onClick={() => { changedCard('prev') }} className={mainStyle.btn}><IoIosArrowDropleftCircle /></button>
+                    <Button
+                        isCarousel={true}
+                        className={mainStyle.btn}
+                        onButtonClick={() => { changedCard('prev') }}>
+                        <IoIosArrowDropleftCircle />
+                    </Button>
 
                     {posts.map((post, index) => (
 
@@ -84,8 +90,12 @@ const Main = () => {
                         />
                     ))}
 
-                    <button onClick={() => { changedCard('next') }} className={mainStyle.btn}><IoIosArrowDroprightCircle /></button>
-
+                    <Button
+                        isCarousel={true}
+                        className={mainStyle.btn}
+                        onButtonClick={() => { changedCard('next') }}>
+                        <IoIosArrowDroprightCircle />
+                    </Button>
                 </div>
 
                 <div className={mainStyle.figureCard}>
