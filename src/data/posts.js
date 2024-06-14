@@ -3,7 +3,7 @@ export const posts = [
     id: 1,
     title: "Introduzione a JavaScript",
     content: "In questo articolo, esploreremo le basi di JavaScript, uno dei linguaggi di programmazione più popolari e versatili utilizzati oggi nel web development.",
-    image: "https://picsum.photos/600/500.webp",
+    image: "https://picsum.photos/600/600.webp",
     tags: ["JavaScript", "Programmazione"],
     published: true
   },
