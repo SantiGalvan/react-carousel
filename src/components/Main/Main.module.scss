@@ -9,5 +9,40 @@
     flex-wrap: wrap;
     flex-shrink: 1;
     gap: 30px;
+    margin: 100px 0;
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+
     margin: 50px 0;
+}
+
+.btn {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    border: transparent;
+    cursor: pointer;
+    transition: all 0.3s linear;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffb703;
+    color: #023047;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.figureCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }

@@ -16,7 +16,6 @@
 
     figure {
         height: 300px;
-        width: 400px;
         border-radius: 20px 20px 0 0;
         overflow: hidden;
     }
@@ -55,6 +54,66 @@
 
     .badge-container {
         display: flex;
+    }
+
+}
+
+.card-carousel {
+    width: 600px;
+    background-color: $white;
+    border-radius: 20px;
+    border-radius: 20px;
+    box-shadow: 3px 20px 62px -25px $black;
+    transition: all 0.3s linear;
+
+    &:hover {
+        transform: scale(1.03);
+    }
+
+    figure {
+        height: 300px;
+        border-radius: 20px 20px 0 0;
+        overflow: hidden;
+    }
+
+    img {
+        transition: all 0.3s linear;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+
+    .card-body {
+        padding: 20px 20px;
+        text-align: center;
+        height: 250px;
+    }
+
+    h2 {
+        margin-bottom: 10px;
+    }
+
+    .btn {
+        margin: 20px 0;
+        padding: 10px 15px;
+        background-color: goldenrod;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        text-transform: uppercase;
+        color: $white;
+        cursor: pointer;
+        transition: all 0.3s linear;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+
+    .badge-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
 }
