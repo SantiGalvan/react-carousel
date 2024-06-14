@@ -4,9 +4,9 @@ import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from "react-icons
 import MainCard from '../Cards/MainCard';
 import mainStyle from './Main.module.scss';
 import { posts } from '../../data/posts.js';
-import Badge from '../Badge/Badge';
 import FigureCard from '../Cards/FigureCard.jsx';
 import SectionCards from './SectionCards.jsx';
+import SectionTags from './SectionTags.jsx';
 
 const tagColors = {
     "Version Control": "#FFC300",
@@ -104,16 +104,7 @@ const Main = () => {
             </section>
 
             {/* Section Tags */}
-            <section id='tags' className={mainStyle.row}>
-
-                {onlyTags().map((tag, i) =>
-                    <Badge
-                        tagColors={tagColors}
-                        key={i}
-                        tag={tag}
-                        style={{ backgroundColor: tagColors[tag] }} >{tag}</Badge>)}
-
-            </section>
+            <SectionTags tagColors={tagColors} onlyTags={onlyTags} />
 
             {/* Section Cards */}
             <SectionCards posts={posts} tagColors={tagColors} />
