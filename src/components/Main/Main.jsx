@@ -6,6 +6,7 @@ import mainStyle from './Main.module.scss';
 import { posts } from '../../data/posts.js';
 import Badge from '../Badge/Badge';
 import FigureCard from '../Cards/FigureCard.jsx';
+import SectionCards from './SectionCards.jsx';
 
 const tagColors = {
     "Version Control": "#FFC300",
@@ -115,20 +116,7 @@ const Main = () => {
             </section>
 
             {/* Section Cards */}
-            <section id='cards' className={mainStyle.row}>
-                {posts.map(post =>
-                (
-                    post.published &&
-                    <MainCard key={post.id}
-                        title={post.title}
-                        image={post.image}
-                        tags={post.tags}
-                        content={post.content}
-                        tagColors={tagColors}
-                    />
-                )
-                )}
-            </section>
+            <SectionCards posts={posts} tagColors={tagColors} />
 
         </main>
     );
