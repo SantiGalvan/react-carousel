@@ -1,0 +1,13 @@
+.background {
+    background-color: #003566;
+    padding: 100px;
+    padding-top: 20px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-shrink: 1;
+    gap: 30px;
+    margin: 50px 0;
+}

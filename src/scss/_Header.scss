@@ -1,0 +1,12 @@
+// Variabili
+@use './_vars.scss' as *;
+
+header {
+    height: 100px;
+    background-color: $header-background;
+    color: $header-color;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

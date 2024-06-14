@@ -1,0 +1,43 @@
+// Header
+@use './_Header.scss';
+// MainCard
+@use './_MainCard.scss';
+// Variabili
+@use './_vars.scss' as *;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poetsen One", sans-serif;
+}
+
+img {
+    max-width: 100%;
+}
+
+.badge {
+    padding: 5px 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: rgba(251, 251, 251, 0.25) 0px 30px 60px -12px inset, rgba(255, 255, 255, 0.3) 0px 18px 36px -18px inset;
+    }
+}
+
+html::-webkit-scrollbar {
+    width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+    background: $white;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: $dark-gray;
+}
