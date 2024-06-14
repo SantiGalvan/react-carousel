@@ -1,7 +1,11 @@
+import { useState } from 'react';
+import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from "react-icons/io";
+
 import MainCard from '../Cards/MainCard';
 import mainStyle from './Main.module.scss';
 import { posts } from '../../data/posts.js';
 import Badge from '../Badge/Badge';
+import FigureCard from '../Cards/FigureCard.jsx';
 
 const tagColors = {
     "Version Control": "#FFC300",
@@ -39,21 +43,93 @@ const onlyTags = () => {
 }
 
 const Main = () => {
+
+    // Logica
+    const [currentShow, setCurrentShow] = useState(0);
+
+    const changedCard = (direction) => {
+
+        if (direction === 'prev') {
+            setCurrentShow(curr => curr !== 0 ? curr - 1 : posts.length - 1);
+        }
+
+        if (direction === 'next') {
+            setCurrentShow(curr => curr === posts.length - 1 ? 0 : curr + 1)
+        }
+    }
+
+
+    // Template
     return (
         <main className={mainStyle.background}>
-            <section className={mainStyle.row}>
-                {onlyTags().map((tag, i) => <Badge tagColors={tagColors} key={i} tag={tag} style={{ backgroundColor: tagColors[tag] }} >{tag}</Badge>)}
+
+            {/* Section Carosello */}
+            <section id='carousel' >
+
+                <div className={mainStyle.carousel}>
+                    <button onClick={() => { changedCard('prev') }} className={mainStyle.btn}><IoIosArrowDropleftCircle /></button>
+
+                    {posts.map((post, index) => (
+
+                        // post.published &&
+                        <MainCard key={post.id}
+                            title={post.title}
+                            image={post.image}
+                            tags={post.tags}
+                            content={post.content}
+                            tagColors={tagColors}
+                            isShow={currentShow === index}
+                            isCarousel={true}
+                        />
+                    ))}
+
+                    <button onClick={() => { changedCard('next') }} className={mainStyle.btn}><IoIosArrowDroprightCircle /></button>
+
+                </div>
+
+                <div className={mainStyle.figureCard}>
+
+                    {posts.map((post, index) =>
+                        <FigureCard
+                            onFigureClick={() => setCurrentShow(index)}
+                            key={post.id}
+                            image={post.image}
+                            title={post.title}
+                            isShow={currentShow === index} />
+                    )}
+
+                </div>
+
             </section>
-            <section className={mainStyle.row}>
-                {posts.map(post => <MainCard key={post.id}
-                    title={post.title}
-                    image={post.image}
-                    tags={post.tags}
-                    content={post.content}
-                    published={post.published}
-                    tagColors={tagColors}
-                />)}
+
+            {/* Section Tags */}
+            <section id='tags' className={mainStyle.row}>
+
+                {onlyTags().map((tag, i) =>
+                    <Badge
+                        tagColors={tagColors}
+                        key={i}
+                        tag={tag}
+                        style={{ backgroundColor: tagColors[tag] }} >{tag}</Badge>)}
+
             </section>
+
+            {/* Section Cards */}
+            <section id='cards' className={mainStyle.row}>
+                {posts.map(post =>
+                (
+                    post.published &&
+                    <MainCard key={post.id}
+                        title={post.title}
+                        image={post.image}
+                        tags={post.tags}
+                        content={post.content}
+                        tagColors={tagColors}
+                    />
+                )
+                )}
+            </section>
+
         </main>
     );
 }
