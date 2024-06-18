@@ -48,6 +48,7 @@ const Main = () => {
 
     // Logica
     const [currentShow, setCurrentShow] = useState(0);
+    const { id, title, image, tags, content } = posts[currentShow];
 
     const changedCard = (direction) => {
 
@@ -76,19 +77,15 @@ const Main = () => {
                         <IoIosArrowDropleftCircle />
                     </Button>
 
-                    {posts.map((post, index) => (
 
-                        // post.published &&
-                        <MainCard key={post.id}
-                            title={post.title}
-                            image={post.image}
-                            tags={post.tags}
-                            content={post.content}
-                            tagColors={tagColors}
-                            isShow={currentShow === index}
-                            isCarousel={true}
-                        />
-                    ))}
+                    <MainCard key={id}
+                        title={title}
+                        image={image}
+                        tags={tags}
+                        content={content}
+                        tagColors={tagColors}
+                        isCarousel={true}
+                    />
 
                     <Button
                         isCarousel={true}

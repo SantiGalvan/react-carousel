@@ -3,12 +3,11 @@ import Badge from '../Badge/Badge';
 
 
 
-const MainCard = ({ title, content, tags, image, tagColors, isShow, isCarousel }) => {
+const MainCard = ({ title, content, tags, image, tagColors, isCarousel }) => {
 
     return (
         isCarousel ?
 
-            isShow &&
             <div className="card-carousel">
                 <figure>
                     <img src={image} alt={title} />
